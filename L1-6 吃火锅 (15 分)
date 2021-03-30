@@ -1,0 +1,35 @@
+#include<iostream>
+using namespace std;
+string a;
+int main()
+{
+	int i,j,k,x;
+	int n=0;
+	int ans=0;
+	string c="chi1 huo3 guo1";
+	while(getline(cin,a))
+	{
+		if(a==".")
+		  break;
+		n++;
+		for(i=0;i<a.size();i++)
+		{
+			if(a.substr(i,14)==c)
+			{
+				ans++;
+				if(ans==1)
+				  x=n;
+				break;
+			}
+		}
+	}
+	cout<<n<<endl;
+	if(ans==0)
+	  cout<<"-_-#"<<endl;
+	else
+	{
+		cout<<x<<" ";
+		cout<<ans<<endl;
+	}
+	return 0;
+}
