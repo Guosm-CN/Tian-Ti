@@ -1,0 +1,61 @@
+#include<iostream>
+#include<stack>
+using namespace std;
+
+int cal(int n1, int n2, char op);
+int main()
+{
+	stack<int> S1;
+	stack<char> S2;
+	int N = 0;
+	cin >> N;
+	for (int i = 0; i < N; i++)
+	{
+		int a = 0;
+		cin >> a;
+		S1.push(a);
+	}
+	for (int i = 0; i < N - 1; i++)
+	{
+		char a ;
+		cin >> a;
+		S2.push(a);
+	}
+	int S = S1.top();
+	S1.pop();
+	while (!S1.empty())
+	{
+		int n1 = S;
+		int n2 = S1.top();
+		S1.pop();
+		char op = S2.top();
+		S2.pop();
+		S = cal(n1, n2, op);
+	}
+	cout << S << endl;
+	return 0;
+}
+
+int cal(int n1, int n2, char op)
+{
+	if (op == '+')
+	{
+		return n2 + n1;
+	}
+	if (op == '-')
+	{
+		return n2 - n1;
+	}
+	if (op == '*')
+	{
+		return n2 * n1;
+	}
+	if (op == '/')
+	{
+		if (n1 == 0)
+		{
+			return 1;
+		}
+		return n2 / n1;
+	}
+}
